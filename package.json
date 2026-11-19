@@ -1,0 +1,20 @@
+{
+  "name": "magpie-mizar",
+  "version": "0.1.0",
+  "description": "Mizar as a magpie agent: magpie's endpoint and model catalog in ~/.mizar/models.json, and the model Mizar starts on in ~/.mizar/settings.json",
+  "type": "module",
+  "files": ["mizar.agent.js", "README.md"],
+  "keywords": ["magpie", "magpie-agent", "mizar", "llm-gateway", "coding-agent"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mieluoxxx/magpie-mizar.git"
+  },
+  "scripts": {
+    "test": "bun test mizar.test.mjs"
+  },
+  "magpie": {
+    "agent": "./mizar.agent.js",
+    "icon": "https://raw.githubusercontent.com/Mieluoxxx/Mizar/main/site/public/favicon.svg"
+  }
+}
