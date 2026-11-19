@@ -133,3 +133,29 @@ test("declares the community agent entry and no host module", () => {
   expect(pkg.scripts.preinstall).toBeUndefined()
   expect(pkg.scripts.postinstall).toBeUndefined()
 })
+
+test("carries an icon that renders where magpie shows it, in an <img>", () => {
+  // magpie draws an agent's picture as <img src>, and shows an https or data:
+  // URI only: provider.iconURL refuses anything else, and a relative path
+  // would name a file beside the plugin that the page never serves
+  const pkg = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf8"))
+  const icon = pkg.magpie.icon
+  expect(icon.startsWith("data:image/svg+xml;base64,")).toBe(true)
+  const svg = Buffer.from(icon.split(",")[1], "base64").toString("utf8")
+  expect(svg).toContain("<svg")
+  // a <style> block inside an <img> is not applied: paths carrying only a
+  // class name come out with no fill at all, which is a blank icon
+  expect(svg).not.toContain("<style")
+  expect(svg).not.toMatch(/class=/)
+  const paths = svg.match(/<path[^>]*>/g) ?? []
+  expect(paths.length).toBeGreaterThan(0)
+  for (const p of paths) expect(p).toContain("fill=")
+})
+
+test("keeps the icon.svg the data URI was made from", () => {
+  const pkg = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf8"))
+  expect(pkg.files).toContain("icon.svg")
+  const file = readFileSync(new URL("./icon.svg", import.meta.url), "utf8")
+  const svg = Buffer.from(pkg.magpie.icon.split(",")[1], "base64").toString("utf8")
+  expect(file.trim()).toBe(svg.trim())
+})

@@ -3,8 +3,18 @@
   "version": "0.1.0",
   "description": "Mizar as a magpie agent: magpie's endpoint and model catalog in ~/.mizar/models.json, and the model Mizar starts on in ~/.mizar/settings.json",
   "type": "module",
-  "files": ["mizar.agent.js", "README.md"],
-  "keywords": ["magpie", "magpie-agent", "mizar", "llm-gateway", "coding-agent"],
+  "files": [
+    "mizar.agent.js",
+    "icon.svg",
+    "README.md"
+  ],
+  "keywords": [
+    "magpie",
+    "magpie-agent",
+    "mizar",
+    "llm-gateway",
+    "coding-agent"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -15,6 +25,6 @@
   },
   "magpie": {
     "agent": "./mizar.agent.js",
-    "icon": "https://raw.githubusercontent.com/Mieluoxxx/Mizar/main/site/public/favicon.svg"
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj4KICA8cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI3IiBmaWxsPSIjMTYxNjE2Ii8+CiAgPHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTUuNSAyNC41VjguNkg5TDE1LjYgMTYuNkwxOC4zIDEzLjhMMjAuNyAxNi4yTDE1LjYgMjEuNUw4LjkgMTMuOVYyNC41SDUuNVoiLz4KICA8cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMjAuOSAxNi44SDI0LjZWMjQuNUgyMC45VjE2LjhaIi8+CiAgPHBhdGggZmlsbD0iIzZiOGZmZiIgZD0iTTIyLjkgNy4yIFEyMy43IDEwLjkgMjcuNCAxMS43IFEyMy43IDEyLjUgMjIuOSAxNi4yIFEyMi4xIDEyLjUgMTguNCAxMS43IFEyMi4xIDEwLjkgMjIuOSA3LjIgWiIvPgogIDxwYXRoIGZpbGw9IiM2YjhmZmYiIGQ9Ik0yNy4zIDQuNCBRMjcuOCA1LjggMjkuMiA2LjMgUTI3LjggNi44IDI3LjMgOC4yIFEyNi44IDYuOCAyNS40IDYuMyBRMjYuOCA1LjggMjcuMyA0LjQgWiIvPgo8L3N2Zz4="
   }
 }
