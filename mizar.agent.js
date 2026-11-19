@@ -9,9 +9,17 @@
 // piModelOn): every thinking level is named, the ones the model lacks set to
 // null, because a level left out is offered rather than hidden.
 
+// The row's picture, an https URL or a data: URI (agentplug.Desc.Icon).
+// It is icon.svg, which package.json's magpie.icon carries too: that one
+// is the plugin's row, this one the agent's. Paths carry their own fill
+// because magpie draws it as <img src>, where a <style> block inside the
+// SVG is not applied and class-coloured paths come out blank.
+const ICON = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj4KICA8cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI3IiBmaWxsPSIjMTYxNjE2Ii8+CiAgPHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTUuNSAyNC41VjguNkg5TDE1LjYgMTYuNkwxOC4zIDEzLjhMMjAuNyAxNi4yTDE1LjYgMjEuNUw4LjkgMTMuOVYyNC41SDUuNVoiLz4KICA8cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMjAuOSAxNi44SDI0LjZWMjQuNUgyMC45VjE2LjhaIi8+CiAgPHBhdGggZmlsbD0iIzZiOGZmZiIgZD0iTTIyLjkgNy4yIFEyMy43IDEwLjkgMjcuNCAxMS43IFEyMy43IDEyLjUgMjIuOSAxNi4yIFEyMi4xIDEyLjUgMTguNCAxMS43IFEyMi4xIDEwLjkgMjIuOSA3LjIgWiIvPgogIDxwYXRoIGZpbGw9IiM2YjhmZmYiIGQ9Ik0yNy4zIDQuNCBRMjcuOCA1LjggMjkuMiA2LjMgUTI3LjggNi44IDI3LjMgOC4yIFEyNi44IDYuOCAyNS40IDYuMyBRMjYuOCA1LjggMjcuMyA0LjQgWiIvPgo8L3N2Zz4="
+
 export const agent = {
   id: "mizar",
   name: "Mizar",
+  icon: ICON,
   bin: "mizar",
   dir: "~/.mizar",
   // connect writes the gateway and the catalog here

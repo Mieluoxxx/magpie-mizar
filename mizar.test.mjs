@@ -152,6 +152,17 @@ test("carries an icon that renders where magpie shows it, in an <img>", () => {
   for (const p of paths) expect(p).toContain("fill=")
 })
 
+test("gives the icon to the agent export too, which is what the Agents page draws", () => {
+  // package.json's magpie.icon is the plugin's own row. An agent's row reads
+  // agentplug.Desc.Icon, the icon of the module's agent export: with only the
+  // package one set, magpie's pluggedIcon falls back to "generic", and the
+  // Agents page shows a placeholder while the Plugins page shows the picture
+  expect(agent.icon).toBeDefined()
+  expect(agent.icon.startsWith("data:image/svg+xml;base64,")).toBe(true)
+  const pkg = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf8"))
+  expect(agent.icon).toBe(pkg.magpie.icon)
+})
+
 test("keeps the icon.svg the data URI was made from", () => {
   const pkg = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf8"))
   expect(pkg.files).toContain("icon.svg")
